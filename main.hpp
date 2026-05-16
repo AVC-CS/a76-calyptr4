@@ -46,7 +46,7 @@ int findNames(int cnt, string state[], string gender[], int year[], string name[
             }
     };
     cout << "total lines: " << cnt2 << endl;
-    return cnt;
+    return cnt2;
     // TODO: print each record where the state matches `stname` and the name
 }
 
