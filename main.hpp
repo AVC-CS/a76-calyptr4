@@ -20,7 +20,7 @@ void printoutcontents(string, string, int, string, int);
 int makeNameRecord(string state[], string gender[], int year[], string name[], int count[])
 {
     ifstream inputfile;
-    inputfile.open("babyname.txt");
+    inputfile.open("babyname.txt", fstream::in);
     if (!inputfile){
         cerr << "Error opening file!" << endl;
         exit(1);
@@ -29,8 +29,6 @@ int makeNameRecord(string state[], string gender[], int year[], string name[], i
     int cnt = 0;
     while (inputfile >> state[cnt] >> gender[cnt] >> year[cnt] >> name[cnt] >> count[cnt]) {
         cnt++;
-        if (cnt >= N) 
-            break;
     }
     inputfile.close();
     return cnt;
@@ -40,6 +38,7 @@ int makeNameRecord(string state[], string gender[], int year[], string name[], i
 int findNames(int cnt, string state[], string gender[], int year[], string name[], int count[], char starting, string stname)
 {
     int cnt2=0;
+    cout << "The list of names in " << stname << " and name starting with " << starting << endl;
     for(int i=0; i<cnt; i++){
             if(state[i] == stname && name[i].rfind(starting, 0) == 0){
                 printoutcontents(state[i], gender[i], year[i], name[i], count[i]);
