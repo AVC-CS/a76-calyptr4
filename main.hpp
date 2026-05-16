@@ -39,12 +39,14 @@ int makeNameRecord(string state[], string gender[], int year[], string name[], i
 
 int findNames(int cnt, string state[], string gender[], int year[], string name[], int count[], char starting, string stname)
 {
+    int cnt2=0;
     for(int i=0; i<cnt; i++){
             if(state[i] == stname && name[i].rfind(starting, 0) == 0){
                 printoutcontents(state[i], gender[i], year[i], name[i], count[i]);
-                cnt++;
+                cnt2++;
             }
-    }
+    };
+    cout << "total lines: " << cnt2 << endl;
     return cnt;
     // TODO: print each record where the state matches `stname` and the name
 }
